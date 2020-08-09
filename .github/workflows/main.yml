@@ -15,7 +15,7 @@ jobs:
         run: echo Hello, world!
 
       - name: generage key file
-        run: echo ${{ secrets.SSH_KEY }} > /tmp/key
+        run: echo "${{ secrets.SSH_KEY }}" > /tmp/key
 
       - name: dgenerage key file
         run: chmod 400 /tmp/key        
