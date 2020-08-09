@@ -14,5 +14,11 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
+      - name: generage key file
+        run: ${{ secrets.SSH_KEY }} > /tmp/key
+
+      - name: dgenerage key file
+        run: chmod 400 /tmp/key        
+
       - name: dddd
-        run: ssh -i ${{ secrets.SSH_KEY }} root@15.164.84.222 mkdir . /home/ubuntu/f/deploy.sh
+        run: ssh -i /tmp/key root@15.164.84.222 mkdir . /home/ubuntu/f/deploy.sh
